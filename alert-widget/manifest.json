@@ -1,0 +1,30 @@
+{
+  "name": "Streamlabs Widget",
+  "version": "0.0.1",
+  "buildPath": "dist/",
+  "permissions": [],
+  "sources": [
+    {
+      "type": "browser_source",
+      "name": "Example Widget",
+      "id": "streamlabs_example_widget",
+      "about": {
+        "description": "This widget will notify you about new followers",
+        "bullets": []
+      },
+      "file": "index.html",
+      "initialSize": {
+        "type": "relative",
+        "width": 1,
+        "height": 1
+      }
+    }
+  ],
+  "pages": [
+    {
+      "slot": "top_nav",
+      "persistent": false,
+      "file": "settings.html"
+    }
+  ]
+}

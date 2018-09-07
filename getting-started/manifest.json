@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "name": "Getting Started",
+  "permissions": [],
+  "sources": [
+    {
+      "type": "browser_source",
+      "name": "Getting Started Widget",
+      "id": "test",
+      "about": {
+        "description": "First example widget",
+        "bullets": []
+      },
+      "file": "index.html",
+      "initialSize": {
+        "type": "relative",
+        "width": 1,
+        "height": 1
+      }
+    }
+  ],
+  "pages": []
+}

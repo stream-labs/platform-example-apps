@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.streamlabs.com/slobs-platform/lib/streamlabs-platform.min.js"></script>
+  <title>First Widget</title>
+</head>
+<body>
+  <div id="content">Hello, World!</div>
+
+  <script>
+    const colors = ['red', 'blue', 'green', 'orange', 'purple', 'black', 'gold'];
+    const streamlabs = window.Streamlabs;
+    streamlabs.init({ receiveEvents: true })
+      .then(data => {
+        console.log('auth completed');
+      });
+    
+    streamlabs.onFollow(event => {
+      const follower = event.message[0];
+      const div = document.getElementById('content');
+      div.innerHTML = follower.name + ' is now following';
+
+      // set random color
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      div.setAttribute('style', 'color: ' + color);
+    });
+  </script>
+</body>
+</html>
