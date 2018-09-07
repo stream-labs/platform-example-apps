@@ -6,10 +6,10 @@
   "sources": [
     {
       "type": "browser_source",
-      "name": "Example Widget",
+      "name": "Change text color Widget",
       "id": "change_color_widget",
       "about": {
-        "description": "This widget will change text color  when a button is clicked",
+        "description": "This widget will change text color when a button is clicked",
         "bullets": [
           "Change the color of text",
           "Is totally worth $5 / month"
