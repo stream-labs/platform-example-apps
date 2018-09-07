@@ -1,0 +1,34 @@
+{
+  "name": "Change Text Color App",
+  "version": "0.0.1",
+  "buildPath": "build/",
+  "permissions": ["slobs.scenes-sources", "slobs.obs-settings"],
+  "sources": [
+    {
+      "type": "browser_source",
+      "name": "Example Widget",
+      "id": "change_color_widget",
+      "about": {
+        "description": "This widget will change text color  when a button is clicked",
+        "bullets": [
+          "Change the color of text",
+          "Is totally worth $5 / month"
+        ],
+        "bannerImage": "colbert.gif"
+      },
+      "file": "widget.html",
+      "initialSize": {
+        "type": "relative",
+        "width": 1,
+        "height": 1
+      }
+    }
+  ],
+  "pages": [
+    {
+      "slot": "top_nav",
+      "persistent": true,
+      "file": "settings.html"
+    }
+  ]
+}

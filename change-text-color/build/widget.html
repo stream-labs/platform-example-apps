@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cool Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.streamlabs.com/slobs-platform/lib/streamlabs-platform.min.js"></script>
+  <style>
+  h1 {
+    font-size: 5em;
+  }
+  </style>
+</head>
+<body>
+  <h1 id="title">This is a cool widget</h1>
+  <script>
+    const streamlabs = window.Streamlabs;
+
+    streamlabs.init({ receiveEvents: true, twitchChat: true })
+      .then(data => {
+      	// here will be authentication details
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    streamlabs.onError(function (err) {
+      console.log(err);
+    });
+    streamlabs.onFollow(function (event) {
+      console.log('follow event received');
+      console.log(event);
+    });
+    streamlabs.onFollow(function (event) {
+      document.getElementById('title').innerText = event.message[0].name +" is now following!";
+      console.log('second listener of follow events');
+      console.log(event);
+    });
+
+    streamlabs.onSubscription(function (event){
+      console.log('someone just subscribed');
+      console.log(event);
+    });    
+
+    streamlabs.onMerch(function (event) {
+      console.log('someone just bought merch');
+      console.log(event);
+    });
+
+    streamlabs.onChatMessage(function (message) {
+      console.log('message from twitch chat received');
+      console.log(message);
+    });
+    streamlabs.onChatEvent(function (rawMessage) {
+      console.log('raw event from twitch chat received for advanced users');
+      console.log(rawMessage);
+    });
+    streamlabs.onMessage(function (event) {
+      if(event.type = 'colorChanged'){
+        document.getElementById('title').style.color = event.data.color;
+      }
+      console.log('event received from your other page');
+      console.log(event);
+    });
+
+    // you can get and set settings specific for this user
+    streamlabs.userSettings.get('test')
+      .then(data => {
+        console.log(data);
+      });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.streamlabs.com/slobs-platform/lib/streamlabs-platform.min.js"></script>
+</head>
+<body>
+  <h1>Click the following buttons to change the color of text in the widget</h1>
+  <button onclick="changeColor('red')">change color to red</button>
+  <button onclick="changeColor('green')">change color to green</button>
+  <button onclick="changeColor('blue')">change color to blue</button>
+  
+  <script>
+    const streamlabs = window.Streamlabs;
+
+    streamlabs.init({ receiveEvents: true, twitchChat: true })
+      .then(data => {
+      	// here will be authentication details
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    streamlabs.onError(function (err) {
+      console.log(err);
+    });
+   
+	function changeColor(color){
+		streamlabs.postMessage('colorChanged', {color: color});
+	}
+  </script>
+</body>
+</html>
+
