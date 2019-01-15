@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "name": "Getting Started",
   "permissions": [],
+  "supportedPlatforms": ["twitch"],
   "sources": [
     {
       "type": "browser_source",
